@@ -1,9 +1,15 @@
 pipeline {
     agent any
-
+    
     stages {
-
-
+        stage('Checkout') {
+            steps {
+                script {
+                    sh 'git clone https://github.com/Nishhhhhhhhhh/PES1UG22AM108_Jenkins.git'
+                }
+            }
+        }
+        
         stage('Build') {
             steps {
                 script {
@@ -11,7 +17,7 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Test') {
             steps {
                 script {
@@ -19,11 +25,17 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
             }
+        }
+    }
+    
+    post {
+        failure {
+            echo 'Pipeline failed'
         }
     }
 }
