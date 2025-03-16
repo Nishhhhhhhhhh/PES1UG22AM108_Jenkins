@@ -2,13 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    sh 'git clone https://github.com/Nishhhhhhhhhh/PES1UG22AM108_Jenkins.git'
-                }
-            }
-        }
+
 
         stage('Build') {
             steps {
